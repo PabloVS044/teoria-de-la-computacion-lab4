@@ -39,6 +39,10 @@ public class Main {
         try {
             List<String> postfix = RegexShuntingYard.aPostfija(caso.regex);
             System.out.println("Postfix:   " + RegexShuntingYard.postfijaComoTexto(postfix));
+
+            Nodo raiz = ArbolSintactico.construir(postfix, false);
+            System.out.println("Árbol:     " + raiz.cantidadNodos() + " nodos, altura "
+                    + raiz.altura() + " (raíz '" + raiz.valor + "')");
         } catch (RuntimeException e) {
             System.out.println("Error en la expresión: " + e.getMessage());
         }

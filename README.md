@@ -43,12 +43,16 @@ Sin argumento usa `casos.txt` por defecto.
 ├── casos.txt
 └── src/
     ├── RegexShuntingYard.java  # laboratorio 2, sin cambios
+    ├── Nodo.java               # laboratorio 3, sin cambios
+    ├── ArbolSintactico.java    # laboratorio 3, sin las partes de dibujo en texto
     ├── Caso.java               # par (regex, cadena)
     ├── LectorCasos.java        # parseo del archivo
-    └── Main.java               # lee casos y muestra expresión/cadena/postfix
+    └── Main.java               # lee casos, muestra postfix y arma el árbol sintáctico
 ```
 
 ## Estado
 
-Esta etapa solo lee y muestra los casos (con su postfix). La construcción del
-autómata y la evaluación de pertenencia se agregan en etapas siguientes.
+Por cada caso se lee la expresión y la cadena, se convierte a postfix y se
+construye el árbol sintáctico (sin desplegarlo — solo se reporta su tamaño
+como confirmación de que se armó bien). La construcción del autómata y la
+evaluación de pertenencia se agregan en etapas siguientes.
