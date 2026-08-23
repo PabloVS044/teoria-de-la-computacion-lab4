@@ -4,7 +4,7 @@ Teoría de la Computación, CC2019 — Universidad del Valle de Guatemala
 
 Primera etapa: leer desde un archivo de texto pares de **expresión regular** y
 **cadena** a evaluar. Reusa `RegexShuntingYard.java` del laboratorio 2 (sin
-modificaciones) para tokenizar y convertir cada expresión a postfija.
+modificaciones) para tokenizar y convertir cada expresión a postfix.
 
 ## Formato del archivo
 
@@ -45,10 +45,10 @@ Sin argumento usa `casos.txt` por defecto.
     ├── RegexShuntingYard.java  # laboratorio 2, sin cambios
     ├── Caso.java               # par (regex, cadena)
     ├── LectorCasos.java        # parseo del archivo
-    └── Main.java               # lee casos y muestra expresión/cadena/postfija
+    └── Main.java               # lee casos y muestra expresión/cadena/postfix
 ```
 
 ## Estado
 
-Esta etapa solo lee y muestra los casos (con su postfija). La construcción del
+Esta etapa solo lee y muestra los casos (con su postfix). La construcción del
 autómata y la evaluación de pertenencia se agregan en etapas siguientes.

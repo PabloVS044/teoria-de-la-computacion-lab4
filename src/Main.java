@@ -37,8 +37,8 @@ public class Main {
         System.out.println("Cadena:    " + (caso.cadena.isEmpty() ? "ε (vacía)" : caso.cadena));
 
         try {
-            List<String> postfija = RegexShuntingYard.aPostfija(caso.regex);
-            System.out.println("Postfija:  " + RegexShuntingYard.postfijaComoTexto(postfija));
+            List<String> postfix = RegexShuntingYard.aPostfija(caso.regex);
+            System.out.println("Postfix:   " + RegexShuntingYard.postfijaComoTexto(postfix));
         } catch (RuntimeException e) {
             System.out.println("Error en la expresión: " + e.getMessage());
         }
