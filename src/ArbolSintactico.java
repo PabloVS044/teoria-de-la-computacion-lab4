@@ -55,7 +55,6 @@ public class ArbolSintactico {
         return pila.pop();
     }
 
-    // Convención: E mayúscula equivale a ε.
     public static String normalizar(String token) {
         return token.equals("E") ? EPSILON : token;
     }
@@ -71,7 +70,6 @@ public class ArbolSintactico {
         return hijos;
     }
 
-    // Debe devolver la misma postfija que entró: es la comprobación de que el árbol se armó bien.
     public static String postorden(Nodo nodo) {
         StringBuilder sb = new StringBuilder();
         postorden(nodo, sb);

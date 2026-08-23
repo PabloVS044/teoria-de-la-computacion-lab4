@@ -43,6 +43,10 @@ public class Main {
             Nodo raiz = ArbolSintactico.construir(postfix, false);
             System.out.println("Árbol:     " + raiz.cantidadNodos() + " nodos, altura "
                     + raiz.altura() + " (raíz '" + raiz.valor + "')");
+
+            AFN afn = ConstructorThompson.construir(raiz);
+            System.out.println("AFN (Thompson):");
+            System.out.print(afn.texto());
         } catch (RuntimeException e) {
             System.out.println("Error en la expresión: " + e.getMessage());
         }
