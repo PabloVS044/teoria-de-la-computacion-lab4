@@ -54,7 +54,7 @@ public class RegexShuntingYard {
         return tokens;
     }
 
-    public static List<String> aPostfija(String expresion) {
+    public static List<String> aPostfix(String expresion) {
         List<String> salida = new ArrayList<>();
         Stack<String> pila = new Stack<>();
 
@@ -95,11 +95,11 @@ public class RegexShuntingYard {
         return salida;
     }
 
-    public static List<String> describir(List<String> postfija) {
+    public static List<String> describir(List<String> postfix) {
         List<String> descripcion = new ArrayList<>();
 
-        for (int i = postfija.size() - 1; i >= 0; i--) {
-            String token = postfija.get(i);
+        for (int i = postfix.size() - 1; i >= 0; i--) {
+            String token = postfix.get(i);
             char c = token.charAt(0);
 
             if (c == '.') {
@@ -122,7 +122,7 @@ public class RegexShuntingYard {
         return descripcion;
     }
 
-    public static String postfijaComoTexto(List<String> postfija) {
-        return String.join("", postfija);
+    public static String postfixComoTexto(List<String> postfix) {
+        return String.join("", postfix);
     }
 }

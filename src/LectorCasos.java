@@ -6,25 +6,29 @@ import java.util.List;
 
 public class LectorCasos {
 
-    private static final String SEPARADOR = "::";
-
     public static List<Caso> leer(String rutaArchivo) throws IOException {
-        List<Caso> casos = new ArrayList<>();
+        List<String> lineas = new ArrayList<>();
 
         for (String linea : Files.readAllLines(Path.of(rutaArchivo))) {
             String limpia = linea.trim();
-            if (limpia.isEmpty() || limpia.startsWith("#")) {
-                continue;
+            if (!limpia.isEmpty() && !limpia.startsWith("#")) {
+                lineas.add(limpia);
             }
+        }
 
-            int pos = limpia.indexOf(SEPARADOR);
-            if (pos < 0) {
-                throw new IllegalArgumentException(
-                        "Linea sin separador '" + SEPARADOR + "': " + linea);
+        if (lineas.size() % 2 != 0) {
+            throw new IllegalArgumentException(
+                    "Falta la cadena de la expresión '" + lineas.get(lineas.size() - 1) + "'"
+                            + " (cada expresión lleva su cadena en la línea siguiente)");
+        }
+
+        List<Caso> casos = new ArrayList<>();
+        for (int i = 0; i < lineas.size(); i += 2) {
+            String regex = lineas.get(i);
+            String cadena = lineas.get(i + 1);
+            if (cadena.equals("ε") || cadena.equals("E")) {
+                cadena = "";
             }
-
-            String regex = limpia.substring(0, pos).trim();
-            String cadena = limpia.substring(pos + SEPARADOR.length()).trim();
             casos.add(new Caso(regex, cadena));
         }
 

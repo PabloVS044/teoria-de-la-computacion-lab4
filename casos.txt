@@ -1,5 +1,11 @@
-# regex :: cadena
-(a*|b*)+ :: aaabbb
-((E|a)|b*)* :: ab
-(a|b)*abb(a|b)* :: aabb
-0?(1?)?0* :: 010
+(a*|b*)+
+aaabbb
+
+((ε|a)|b*)*
+ab
+
+(a|b)*abb(a|b)*
+aabb
+
+0?(1?)?0*
+010

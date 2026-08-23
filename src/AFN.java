@@ -1,4 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -36,6 +39,37 @@ public class AFN {
 
     public void agregarTransicion(int origen, String simbolo, int destino) {
         transiciones.get(origen).add(new Transicion(simbolo, destino));
+    }
+
+    public boolean acepta(String cadena) {
+        Set<Integer> actuales = cerraduraEpsilon(Set.of(inicio));
+        for (int i = 0; i < cadena.length(); i++) {
+            String simbolo = String.valueOf(cadena.charAt(i));
+            Set<Integer> siguientes = new HashSet<>();
+            for (int estado : actuales) {
+                for (Transicion t : transiciones.get(estado)) {
+                    if (simbolo.equals(t.simbolo)) {
+                        siguientes.add(t.destino);
+                    }
+                }
+            }
+            actuales = cerraduraEpsilon(siguientes);
+        }
+        return actuales.contains(aceptacion);
+    }
+
+    private Set<Integer> cerraduraEpsilon(Set<Integer> estados) {
+        Set<Integer> cerradura = new HashSet<>(estados);
+        Deque<Integer> pendientes = new ArrayDeque<>(estados);
+        while (!pendientes.isEmpty()) {
+            int estado = pendientes.pop();
+            for (Transicion t : transiciones.get(estado)) {
+                if (t.simbolo == null && cerradura.add(t.destino)) {
+                    pendientes.push(t.destino);
+                }
+            }
+        }
+        return cerradura;
     }
 
     public Set<String> alfabeto() {

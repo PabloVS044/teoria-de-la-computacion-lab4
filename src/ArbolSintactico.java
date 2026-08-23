@@ -6,10 +6,10 @@ public class ArbolSintactico {
 
     public static final String EPSILON = "ε";
 
-    public static Nodo construir(List<String> postfija, boolean expandir) {
+    public static Nodo construir(List<String> postfix, boolean expandir) {
         Stack<Nodo> pila = new Stack<>();
 
-        for (String token : postfija) {
+        for (String token : postfix) {
             char c = token.charAt(0);
 
             if (c == '.' || c == '|') {

@@ -65,7 +65,7 @@ public class ConstructorThompson {
         return new AFN.Fragmento(inicio, fin);
     }
 
-    // r+ = r seguido de cero o más repeticiones: sin el salto directo inicio->fin de la estrella.
+    // r+ = r con cero o más repeticiones
     private static AFN.Fragmento positiva(AFN.Fragmento a, AFN afn) {
         int inicio = afn.nuevoEstado();
         int fin = afn.nuevoEstado();
@@ -75,7 +75,7 @@ public class ConstructorThompson {
         return new AFN.Fragmento(inicio, fin);
     }
 
-    // r? = r o ε: unión con un fragmento vacío.
+    // r? = r o ε
     private static AFN.Fragmento opcional(AFN.Fragmento a, AFN afn) {
         int inicio = afn.nuevoEstado();
         int fin = afn.nuevoEstado();

@@ -37,8 +37,8 @@ public class Main {
         System.out.println("Cadena:    " + (caso.cadena.isEmpty() ? "ε (vacía)" : caso.cadena));
 
         try {
-            List<String> postfix = RegexShuntingYard.aPostfija(caso.regex);
-            System.out.println("Postfix:   " + RegexShuntingYard.postfijaComoTexto(postfix));
+            List<String> postfix = RegexShuntingYard.aPostfix(caso.regex);
+            System.out.println("Postfix:   " + RegexShuntingYard.postfixComoTexto(postfix));
 
             Nodo raiz = ArbolSintactico.construir(postfix, false);
             System.out.println("Árbol:     " + raiz.cantidadNodos() + " nodos, altura "
@@ -47,6 +47,9 @@ public class Main {
             AFN afn = ConstructorThompson.construir(raiz);
             System.out.println("AFN (Thompson):");
             System.out.print(afn.texto());
+
+            boolean acepta = afn.acepta(caso.cadena);
+            System.out.println("¿Pertenece? " + (acepta ? "sí" : "no"));
         } catch (RuntimeException e) {
             System.out.println("Error en la expresión: " + e.getMessage());
         }
