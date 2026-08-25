@@ -15,6 +15,8 @@ estado inicial, estado de aceptación y tabla de transiciones. Por último se
 simula la cadena sobre el AFN (cerradura-ε + movimiento por símbolo) y se
 responde **sí** o **no** según si termina en el estado de aceptación.
 
+Link del video explicando: https://youtu.be/vvL9vZNYKA4
+
 ## Formato del archivo
 
 El enunciado pide leer la expresión y la cadena desde un archivo, pero no
