@@ -2,6 +2,11 @@
 
 Teoría de la Computación, CC2019 — Universidad del Valle de Guatemala
 
+Integrantes:
+Pablo José Vásquez Santos - 24757
+Ivana Cristina Figueroa Diemek - 24785
+Jonathán Javier Tubac Arreaza - 24484
+
 Lee desde un archivo de texto pares de **expresión regular** y **cadena** a
 evaluar. Reusa `RegexShuntingYard.java` (laboratorio 2) y `Nodo.java` /
 `ArbolSintactico.java` (laboratorio 3) para tokenizar, convertir a postfix y
